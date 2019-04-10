@@ -4,7 +4,7 @@
 * [Interface](#interface)
 * [Elevator class](#elevator-class)
 * [Simulations](#simulations)
-* [Ideas / Plans for the future](#ideas-/-Plans-for-the-future)
+* [Ideas](#ideas)
 
 ## General info
 In this project I used a standard library and Collections to create a simple simulation of n-elevators.
@@ -47,7 +47,7 @@ The fields of Elevator:
 
 	
 ## Simulations
-To run this project, you should uncomment one of four simulation methods (in `Main.java`) or create the new one in `SystemSimulation.java`, biuld and compile.
+To run this project, you should uncomment one of four simulation methods (in `Main.java`) or create the new one in `SystemSimulation.java`, compile and build.
 
 ### Example
 `control.pickup(4, Direction.UP, -1)` - someone from the fourth floor is calling for the elevator and he wants to get higher. Direction depends on the button from the floor.
@@ -62,7 +62,7 @@ To run this project, you should uncomment one of four simulation methods (in `Ma
 
 
 
-## Ideas / Plans for the future
+## Ideas
 We can optimize this scheduling algorithm by using priority queue and considering:
 * load of the elevators(if load is about 95%, it should not stay to pick up new people),
 * time(in the morning the elevators should set the highest priority to take people from top to bottom),
