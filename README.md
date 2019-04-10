@@ -47,7 +47,7 @@ The fields of Elevator:
 
 	
 ## Simulations
-To run this project, you should uncomment one of four simulation methods (in `Main.java`) or create the new one in `SystemSimulation.java`.
+To run this project, you should uncomment one of four simulation methods (in `Main.java`) or create the new one in `SystemSimulation.java`, biuld and compile.
 
 ### Example
 `control.pickup(4, Direction.UP, -1)` - someone from the fourth floor is calling for the elevator and he wants to get higher. Direction depends on the button from the floor.
