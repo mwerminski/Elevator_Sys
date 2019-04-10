@@ -4,10 +4,10 @@
 * [Interface](#interface)
 * [Elevator class](#elevator-class)
 * [Simulations](#simulations)
-* [Ideas / Plans for the future](#ideas)
+* [Ideas / Plans for the future](#ideas-/-Plans-for-the-future)
 
 ## General info
-In this project I used a basic library and Collections to create a simple simulation of n-elevators.
+In this project I used a standard library and Collections to create a simple simulation of n-elevators.
 	
 ## Interface
 The `ElevatorSystem` interface has five methods to simulate elevator system. `ElevatorController` implements this interface and override methods as shown below:
@@ -41,7 +41,7 @@ The fields of Elevator:
 * `calls` - local linked list of calls,
 * `MAX_LOAD` - static variable, which is used as the limit of load,
 * `DEFAULT_FLOOR` - static variable, starting point of each elevator,
-* `baseId` - static variable, it could be used to create unique IDs
+* `baseId` - static variable, it can be used to create unique IDs
 
 
 
@@ -52,7 +52,7 @@ To run this project, you should uncomment one of four simulation methods (in `Ma
 ### Example
 `control.pickup(4, Direction.UP, -1)` - someone from the fourth floor is calling for the elevator and he wants to get higher. Direction depends on the button from the floor.
 
-`control.pickup(5, Direction,UP, 1)` - somone in the elevator with ID = 1 pushed button with number "5". Direction depends on the difference in current and destination position.
+`control.pickup(5, Direction,UP, 1)` - somone in the elevator with ID = 1 pushed button with number "5". Direction depends on the difference in current and destination position. Yes, We have to write direction manual.
 
 `control.manageCalls()` - assign calls to elevators, first call will be assigned to elevator with minimal workload
 
@@ -64,5 +64,7 @@ To run this project, you should uncomment one of four simulation methods (in `Ma
 
 ## Ideas / Plans for the future
 We can optimize this scheduling algorithm by using priority queue and considering:
-* load of the elevator(if load is about 95%, it should not stay to pick up new people)
-* time(in the morning the elevators should set the highest priority to take people from top to bottom)
+* load of the elevators(if load is about 95%, it should not stay to pick up new people),
+* time(in the morning the elevators should set the highest priority to take people from top to bottom),
+* dividing elevators into two groups - half of them will handle even floors, the rest of them odd floors,
+* possibility to cancel calls by user.
