@@ -7,27 +7,12 @@ public class Elevator implements Comparable<Elevator>{
     private int id;
     private int destinationFloor;
     private int currentFloor;
-
-    public void setCurrentLoad(double currentLoad) {
-        this.currentLoad = currentLoad;
-    }
-
     private double currentLoad;
     private boolean maintenanceStatus;
     private Direction direction;
     private LinkedList<Call> calls;
     private static final double MAX_LOAD = 600;
     private static final int DEFAULT_FLOOR = 0;
-
-
-
-    public void setDestinationFloor(int destinationFloor) {
-        this.destinationFloor = destinationFloor;
-    }
-
-    public void setCurrentFloor(int currentFloor) {
-        this.currentFloor = currentFloor;
-    }
 
     public Elevator(){
         id = baseId;
@@ -49,8 +34,6 @@ public class Elevator implements Comparable<Elevator>{
         direction = Direction.NONE;
         calls = new LinkedList<>();
     }
-
-
     public void moveOn() {
         if ((!maintenanceStatus) && (currentLoad <= MAX_LOAD)) { //checking availability
             if (destinationFloor != currentFloor) {
@@ -78,6 +61,8 @@ public class Elevator implements Comparable<Elevator>{
     public Direction getDirection(){
         return direction;
     }
+
+
     public int getDestinationFloor() {
         return destinationFloor;
     }
@@ -86,22 +71,37 @@ public class Elevator implements Comparable<Elevator>{
         return currentFloor;
     }
 
+
     public int getId() {
         return id;
     }
+
     public void setDisabled(boolean option){
         maintenanceStatus = option;
     }
+
     public void updateDirection(){
         if(currentFloor != destinationFloor) {
             direction = (currentFloor < destinationFloor) ? Direction.UP: Direction.DOWN;
         }
         else direction = Direction.NONE;
     }
+
     public void addCall(Call call){
         calls.add(call);
     }
 
+    public void setDestinationFloor(int destinationFloor) {
+        this.destinationFloor = destinationFloor;
+    }
+
+    public void setCurrentFloor(int currentFloor) {
+        this.currentFloor = currentFloor;
+    }
+
+    public void setCurrentLoad(double currentLoad) {
+        this.currentLoad = currentLoad;
+    }
     @Override
     public int compareTo(Elevator other) {
         if((this.isMaintenance() == other.isMaintenance())) {
