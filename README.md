@@ -26,7 +26,7 @@ The fields of `ElevatorController`:
 
 ## Elevator class
 This class represents an elevator in my simulation. Important methods:
-* `moveOn()` - imitate a movement of elevator and accepts next call from `calls`. At the beginning it checks the state and workload of an elevator. If the elevator is not in the target position, it will move in right direction. Otherwise it will acquire a new call and update the direction. 
+* `moveOn()` - imitate a movement of elevator and accepts next call from `calls`. At the beginning it checks the state and workload of an elevator. If the elevator is not in the target position, it will move in correct direction. Otherwise it will acquire a new call and update the direction. 
 * `Elevator()` - constructor.
 * `compareTo()` - it is overridden method, we can compare elevator class objects by workload and disability.
 
