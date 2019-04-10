@@ -65,7 +65,7 @@ class ElevatorTest {
 
     @Test
     void getId_SetID_ReturnCorrectID() {
-        assertEquals(5,new Elevator(5).getId());
+        assertEquals(5, new Elevator(5).getId());
     }
 
     @Test
@@ -86,7 +86,7 @@ class ElevatorTest {
         elevator.setCurrentFloor(1);
         elevator.setDestinationFloor(3);
         elevator.updateDirection();
-        assertEquals(Direction.UP,elevator.getDirection());
+        assertEquals(Direction.UP, elevator.getDirection());
     }
 
     @Test
@@ -95,7 +95,7 @@ class ElevatorTest {
         elevator.setCurrentFloor(8);
         elevator.setDestinationFloor(3);
         elevator.updateDirection();
-        assertEquals(Direction.DOWN,elevator.getDirection());
+        assertEquals(Direction.DOWN, elevator.getDirection());
     }
 
     @Test
@@ -103,7 +103,7 @@ class ElevatorTest {
         Elevator elevator = new Elevator();
         elevator.setCurrentFloor(3);
         elevator.setDestinationFloor(3);
-        assertEquals(Direction.NONE,elevator.getDirection());
+        assertEquals(Direction.NONE, elevator.getDirection());
     }
 
 }

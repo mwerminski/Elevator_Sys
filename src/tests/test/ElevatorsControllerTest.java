@@ -17,7 +17,7 @@ class ElevatorsControllerTest {
 
     @Test
     void status_EmptyHashMap_ThrowException() {
-        assertThrows(NoElevatorsException.class,  () -> new ElevatorsController(0).status());
+        assertThrows(NoElevatorsException.class, () -> new ElevatorsController(0).status());
     }
 
     @Test
@@ -26,44 +26,44 @@ class ElevatorsControllerTest {
     }
 
     @Test
-    void status_NegativeNum_ThrowException()  {
-       assertThrows(NoElevatorsException.class,  () -> new ElevatorsController(-5).status());
+    void status_NegativeNum_ThrowException() {
+        assertThrows(NoElevatorsException.class, () -> new ElevatorsController(-5).status());
     }
 
 
     @Test
     void step_EmptyHashMap_ThrowException() {
-        assertThrows(NoElevatorsException.class,  () -> new ElevatorsController(0).step());
+        assertThrows(NoElevatorsException.class, () -> new ElevatorsController(0).step());
     }
 
     @Test
-    void step_FiveElevators_Pass()  {
+    void step_FiveElevators_Pass() {
         new ElevatorsController(5);
     }
 
     @Test
-    void step_NegativeNum_ThrowException()  {
-        assertThrows(NoElevatorsException.class,  () -> new ElevatorsController(-5).status());
+    void step_NegativeNum_ThrowException() {
+        assertThrows(NoElevatorsException.class, () -> new ElevatorsController(-5).status());
     }
 
     @Test
     void update_EmptyHashMap_ThrowException() {
-        assertThrows(NoElevatorsException.class, () -> new ElevatorsController(0).update(0,0,0, false));
+        assertThrows(NoElevatorsException.class, () -> new ElevatorsController(0).update(0, 0, 0, false));
     }
 
     @Test
-    void update_FiveElevators_Pass() throws NoElevatorsException{
-        new ElevatorsController(5).update(4,0,0, false);
+    void update_FiveElevators_Pass() throws NoElevatorsException {
+        new ElevatorsController(5).update(4, 0, 0, false);
     }
 
     @Test
     void update_NegativeNum_ThrowException() {
-        assertThrows(NoElevatorsException.class, () -> new ElevatorsController(-5).update(0,0,0, false));
+        assertThrows(NoElevatorsException.class, () -> new ElevatorsController(-5).update(0, 0, 0, false));
     }
 
     @Test
     void update_WrongId_ThrowException() {
-        assertThrows(NoElevatorsException.class, () -> new ElevatorsController(5).update(800,0,0, false));
+        assertThrows(NoElevatorsException.class, () -> new ElevatorsController(5).update(800, 0, 0, false));
     }
 
 
@@ -78,7 +78,7 @@ class ElevatorsControllerTest {
     }
 
     @Test
-    void updateCurrentLoad_FiveElevators_Pass() throws NegativeValueException, NoElevatorsException{
+    void updateCurrentLoad_FiveElevators_Pass() throws NegativeValueException, NoElevatorsException {
         new ElevatorsController(5).updateCurrentLoad(3, 5);
     }
 
@@ -100,6 +100,7 @@ class ElevatorsControllerTest {
         control.pickup(1, Direction.UP, 3);
         control.manageCalls();
     }
+
     @Test
     void manageCalls_NoPickups_Pass() throws NoElevatorsException, DisabledElevatorsException {
         ElevatorsController control = new ElevatorsController(5);
@@ -112,10 +113,10 @@ class ElevatorsControllerTest {
     }
 
     @Test
-    void manageCalls_DisabledElevators_ThrowException() throws NoElevatorsException{
+    void manageCalls_DisabledElevators_ThrowException() throws NoElevatorsException {
         ElevatorsController control = new ElevatorsController(2);
-        control.update(0,3,3, true);
-        control.update(1,0,0, true);
+        control.update(0, 3, 3, true);
+        control.update(1, 0, 0, true);
         control.pickup(5, Direction.UP, -1);
         control.pickup(6, Direction.UP, -1);
 

@@ -2,7 +2,9 @@ package Elevators;
 
 import java.util.LinkedList;
 
-public class Elevator implements Comparable<Elevator>{
+public class Elevator implements Comparable<Elevator> {
+    private static final double MAX_LOAD = 600;
+    private static final int DEFAULT_FLOOR = 0;
     static private int baseId = 0;
     private int id;
     private int destinationFloor;
@@ -11,10 +13,8 @@ public class Elevator implements Comparable<Elevator>{
     private boolean maintenanceStatus;
     private Direction direction;
     private LinkedList<Call> calls;
-    private static final double MAX_LOAD = 600;
-    private static final int DEFAULT_FLOOR = 0;
 
-    public Elevator(){
+    public Elevator() {
         id = baseId;
         baseId++;
         destinationFloor = DEFAULT_FLOOR;
@@ -25,7 +25,7 @@ public class Elevator implements Comparable<Elevator>{
         calls = new LinkedList<>();
     }
 
-    public Elevator(int iD){
+    public Elevator(int iD) {
         id = iD;
         destinationFloor = DEFAULT_FLOOR;
         currentFloor = DEFAULT_FLOOR;
@@ -34,6 +34,7 @@ public class Elevator implements Comparable<Elevator>{
         direction = Direction.NONE;
         calls = new LinkedList<>();
     }
+
     public void moveOn() {
         if ((!maintenanceStatus) && (currentLoad <= MAX_LOAD)) { //checking availability
             if (destinationFloor != currentFloor) {
@@ -54,11 +55,12 @@ public class Elevator implements Comparable<Elevator>{
 
         }
     }
-    public boolean isMaintenance(){
+
+    public boolean isMaintenance() {
         return maintenanceStatus;
     }
 
-    public Direction getDirection(){
+    public Direction getDirection() {
         return direction;
     }
 
@@ -67,50 +69,48 @@ public class Elevator implements Comparable<Elevator>{
         return destinationFloor;
     }
 
-    public int getCurrentFloor() {
-        return currentFloor;
-    }
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setDisabled(boolean option){
-        maintenanceStatus = option;
-    }
-
-    public void updateDirection(){
-        if(currentFloor != destinationFloor) {
-            direction = (currentFloor < destinationFloor) ? Direction.UP: Direction.DOWN;
-        }
-        else direction = Direction.NONE;
-    }
-
-    public void addCall(Call call){
-        calls.add(call);
-    }
-
     public void setDestinationFloor(int destinationFloor) {
         this.destinationFloor = destinationFloor;
+    }
+
+    public int getCurrentFloor() {
+        return currentFloor;
     }
 
     public void setCurrentFloor(int currentFloor) {
         this.currentFloor = currentFloor;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setDisabled(boolean option) {
+        maintenanceStatus = option;
+    }
+
+    public void updateDirection() {
+        if (currentFloor != destinationFloor) {
+            direction = (currentFloor < destinationFloor) ? Direction.UP : Direction.DOWN;
+        } else direction = Direction.NONE;
+    }
+
+    public void addCall(Call call) {
+        calls.add(call);
+    }
+
     public void setCurrentLoad(double currentLoad) {
         this.currentLoad = currentLoad;
     }
+
     @Override
     public int compareTo(Elevator other) {
-        if((this.isMaintenance() == other.isMaintenance())) {
+        if ((this.isMaintenance() == other.isMaintenance())) {
             if (((this.direction == Direction.NONE) || (other.direction == Direction.NONE)) &&
                     (this.direction != other.direction))
                 return other.direction.compareTo(this.direction);
             else return Integer.compare(this.calls.size(), other.calls.size());
-        }
-        else return (this.isMaintenance()) ? 1 : -1;
+        } else return (this.isMaintenance()) ? 1 : -1;
 
 
     }
