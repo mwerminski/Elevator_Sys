@@ -7,7 +7,7 @@
 * [Ideas](#ideas)
 
 ## General info
-In this project I used a standard library and Collections to create a simple simulation of n-elevators.
+In this project I used a standard library and Collections to create a simple simulation of n-elevators for learning purposes.
 	
 ## Interface
 The `ElevatorSystem` interface has five methods to simulate elevator system. `ElevatorController` implements this interface and override methods as shown below:
